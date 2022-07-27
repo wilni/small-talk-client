@@ -11,11 +11,13 @@ function App() {
     <Router>
       <main className='App'>
       <Header />
+      <div className='card'>
       <Switch>
         <Route path={'/login'} component={Login} />
         <Route path={'/signup'} component={Signup} />
         <Route path={'/'}  component={Connections} />
       </Switch>
+      </div>
       <Footer/>
       </main>
     </Router>

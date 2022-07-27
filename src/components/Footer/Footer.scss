@@ -1,0 +1,9 @@
+@use '../../styles/partial/colors.scss' as *;
+@use '../../styles/partial/breakpoints' as *;
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

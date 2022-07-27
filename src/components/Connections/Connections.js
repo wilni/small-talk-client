@@ -1,9 +1,16 @@
-import './Connections.scss'; 
+import './Connections.scss';
 
 
-function Connections(props){
-    return(
-        <h3>HI, im the Connections component </h3>
+function Connections(props) {
+    return (
+        <section className='chats'>
+            <h3>HI, im a connection, click me to go to our chat </h3>
+            <h3>HI, im a connection, click me to go to our chat</h3>
+            <h3>HI, im a connection, click me to go to our chat</h3>
+            <h3>HI, im a connection, click me to go to our chat</h3>
+            <h3>HI, im a connection, click me to go to our chat</h3>
+            <h3>HI, im a connection, click me to go to our chat</h3>
+        </section>
     )
 }
 

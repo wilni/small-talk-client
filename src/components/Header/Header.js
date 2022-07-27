@@ -1,15 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import './Header.scss';
-import logo from '../../assets/Images/logo-option5.svg';
+import logo from '../../assets/Images/logo-option4.svg';
 
 
 function Header(props) {
     return (
-        <header>
-            <img src={logo}></img>
+        <header className='header'>
+            <img className='header__logo' src={logo} alt="logo"></img>
             <nav className='navbar'>
-                <NavLink to={'/'}>Connections</NavLink>
-                <NavLink to={'/'}>Login</NavLink>
+                <NavLink className={'navbar__link'} to={'/'}>Connections</NavLink>
+                <NavLink className={'navbar__link'} to={'/login'}>Login</NavLink>
             </nav>
         </header>
     )

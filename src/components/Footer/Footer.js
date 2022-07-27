@@ -3,7 +3,10 @@ import './Footer.scss';
 
 function Footer(props){
     return(
-        <h3>HI, im the Footer component </h3>
+        <footer className='footer'>
+            <p>&copy; Small-Talk. All Rights Reserved </p>
+        </footer>
+        
     )
 }
 
