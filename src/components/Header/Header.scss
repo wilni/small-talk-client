@@ -1,9 +1,33 @@
+@use "../../styles/partial/colors" as *;
+@use '../../styles/partial/breakpoints' as *;
+
+
+
 .header {
 display: flex;
 flex-direction: column;
+align-items: center;
+background-color: $Primary;
+width: 100%;
+padding-bottom: 3rem;
+
+&__logo {
+    width: 55%;
+
+}
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 8rem;
+
+    &__link {
+        text-decoration: none;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 20px;
+        background-blend-mode: difference;
+        background-color: $Primary-dark;
+    }
 }
