@@ -4,9 +4,12 @@ import logo from '../../assets/Images/logo-option4.svg';
 import LoginBtn from '../LoginBtn/LoginBtn.js';
 import LogoutBtn from '../LogoutBtn/LogoutBtn.js';
 import { useHistory } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function Header(props) {
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    console.log("from header", isAuthenticated);
     const history = useHistory();
     let handleClick = (e) => {
         e.preventDefault();

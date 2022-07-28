@@ -1,15 +1,13 @@
 import './App.scss';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
-import Login from './components/Login/Login.js';
-import Signup from './components/Signup/Signup.js';
 import Connections from './components/Connections/Connections.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-
+  console.log("from app", isAuthenticated);
   if (isLoading) {
     return (<div>Loading ...</div>);
   }
@@ -17,7 +15,7 @@ function App() {
   if(!isAuthenticated){
     return (
       <>
-      <Header />
+      <Header isAuthenticated={isAuthenticated} />
     <div>Please sign in</div>
 </>
     )
@@ -28,7 +26,7 @@ function App() {
 
       <Router>
       <main className='App'>
-      <Header />
+      <Header auth={isAuthenticated} />
       <div className='card'>
       <Switch>
         <Route path={'/'}  component={Connections} />
