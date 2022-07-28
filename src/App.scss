@@ -28,10 +28,11 @@
 
   @include tablet{
     top: -2rem;
+    width: 75%;
   }
 
   @include desktop{
-    width: 85%;
+    width: 65%;
   }
 
 }

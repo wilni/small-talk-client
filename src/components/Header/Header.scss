@@ -20,14 +20,24 @@ padding-bottom: 3rem;
 .navbar {
     display: flex;
     justify-content: center;
-    column-gap: 8rem;
+    column-gap: 4rem;
+    @include tablet {
+        column-gap: 10rem;
+    }
 
     &__link {
+        flex-shrink: 0;
+        flex-basis: 35%;
+        width: 50%;
         text-decoration: none;
         color: white;
         padding: 0.5rem;
         border-radius: 20px;
         background-blend-mode: difference;
         background-color: $Primary-dark;
+        &:hover {
+            background-color: $Primary-light;
+        }
     }
 }
+
