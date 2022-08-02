@@ -20,9 +20,7 @@ function Header(props) {
             <img className='header__logo' src={logo} alt="logo"></img>
             <nav className='navbar'>
                 <button className={'navbar__link'} onClick={handleClick}>Connections</button>
-                <LoginBtn >Login</LoginBtn>
-    
-                <LogoutBtn >Logout</LogoutBtn>
+                {isAuthenticated?<LogoutBtn >Logout</LogoutBtn>: <LoginBtn >Login</LoginBtn>}
             </nav>
         </header>
     )

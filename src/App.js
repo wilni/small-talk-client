@@ -5,6 +5,8 @@ import Connections from './components/Connections/Connections.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
+
+
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   console.log("from app", isAuthenticated);
@@ -19,7 +21,11 @@ function App() {
     <div>Please sign in</div>
 </>
     )
+  }else {
+    //check if there is user with email in database 
+    // if !user send a post to back end 
   }
+
 
 
   return (
