@@ -1,3 +1,6 @@
+@use './styles/partial/breakpoints' as *;
+@use './styles/partial/colors' as *;
+
 *{
   box-sizing: border-box;
   padding:0;
@@ -11,5 +14,26 @@
   align-items: center;
   height: 100vh; 
   position: relative;
+  background-color: $Secondary-light;
+}
+
+.card {
+  width: 95%;
+  height: fit-content;
+  background-color: white;
+  position: relative;
+  top: -1rem;
+  border-radius: 4px;
+  background-color: $Secondary;
+
+  @include tablet{
+    top: -2rem;
+    width: 75%;
+  }
+
+  @include desktop{
+    width: 65%;
+  }
+
 }
 
