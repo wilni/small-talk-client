@@ -14,25 +14,21 @@
   align-items: center;
   height: 100vh; 
   position: relative;
-  background-color: $Secondary-light;
+  background-color: $Primary-light;
 }
 
 .card {
   width: 95%;
   height: fit-content;
-  background-color: white;
+  background-color: $Primary-light;
   position: relative;
   top: -1rem;
-  border-radius: 4px;
-  background-color: $Secondary;
+  border-radius: 10px;
+  border: 1px solid $Secondary;
 
   @include tablet{
     top: -2rem;
-    width: 75%;
-  }
-
-  @include desktop{
-    width: 65%;
+    width: 80%;
   }
 
 }

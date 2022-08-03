@@ -1,6 +1,6 @@
 
 import './Header.scss'
-import logo from '../../assets/Images/logo-option4.svg';
+import logo from '../../assets/Images/logo-option6.svg';
 import LoginBtn from '../LoginBtn/LoginBtn.js';
 import LogoutBtn from '../LogoutBtn/LogoutBtn.js';
 import { useHistory } from 'react-router-dom';
