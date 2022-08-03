@@ -1,7 +1,7 @@
 import './App.scss';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
-import Connections from './components/Connections/Connections.js';
+import ConnectionsList from './components/ConnectionsList/ConnectionsList.js';
 import Messages from './components/Messages/Messages.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -51,7 +51,7 @@ function App() {
         <div className='card'>
           <Switch>
             <Route path={'/messages'} component={Messages} />
-            <Route path={'/'} component={Connections} />
+            <Route path={'/'} component={ConnectionsList} />
           </Switch>
         </div>
         {/* <p>{JSON.stringify(user)}</p> */}
