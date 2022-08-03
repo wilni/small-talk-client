@@ -1,0 +1,37 @@
+@use "../../styles/partial/colors"as *;
+@use '../../styles/partial/breakpoints'as *;
+
+.chats {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    @include tablet {
+        padding: 1rem 1rem 1rem 1rem;   
+    }
+}
+
+.connection {
+    padding: 0.5rem;
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    text-decoration: none;
+    color: $Secondary;
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        column-gap: 0.2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        padding-bottom: 1rem;
+        flex-basis: 100%;
+    }
+    &__avatar {
+        max-width: 38px;
+        max-height: 38px;
+    }
+    &__username {
+        flex-basis: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
