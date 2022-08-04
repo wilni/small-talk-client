@@ -50,7 +50,7 @@ function App() {
         <Header auth={isAuthenticated} />
         <div className='card'>
           <Switch>
-            <Route path={'/messages'} component={Messages} />
+            <Route path={'/messages/:id'} component={Messages} />
             <Route path={'/'} component={ConnectionsList} />
           </Switch>
         </div>

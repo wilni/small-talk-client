@@ -11,57 +11,19 @@ import sendIcon from '../../assets/Images/send_icon.svg';
 
 import {useState, useEffect} from 'react';
 import { useHistory} from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
 
-
-const fakemessages = [
-    {
-        sender: 'me',
-        text: "hey how are you? ",
-        id: 1
-    }, 
-    {
-        sender: '',
-        text: "good and you?",
-        id:2
-    }, 
-    {
-        sender: 'me',
-        text: "good thank you for asking! ",
-        id: 3
-    }, 
-    {
-        sender: '',
-        text: "what the hell do you want?",
-        id:4
-    }, 
-    {
-        sender: '',
-        text: "Always asking for stuff",
-        id:5
-    },
-    {
-        sender: '',
-        text: "Always asking for stuff",
-        id:6
-    },
-    {
-        sender: '',
-        text: "Always asking for stuff",
-        id:7
-    }
-]
-
-function Messages({location}) {
-        const [messages, setMessages] = useState([]);
+function Messages({match}) {
+        const [messages, setMessages] = useState(() => []);
+        const { user } = useAuth0();
         let history = useHistory();
-        let urlPath = location.pathname;
-        let connectionID = urlPath.split('').pop();
+        let connectionID = match.params.id;
 
         useEffect(() => {
             axios.get(`http://localhost:8080/messages/${connectionID}`)
             .then(res => {
-                console.log("conection data",res.data);
+                console.log("messages data",res.data);
                 setMessages(res.data)
             })
         }, [])
@@ -74,10 +36,10 @@ function Messages({location}) {
             <p className='chatbox__nav-username'>{'Joe@aim.com'}</p>
             </div>
             <div className='chatbox__messages'>
-            {fakemessages.map(msg => {
+            {messages.map(msg => {
                 return (
-                    <div key={msg.id} className={msg.sender === "me" ? 'chatbox__message chatbox__message--out' : 'chatbox__message  chatbox__message--in'}>
-                        <p>{msg.text}</p>
+                    <div key={msg.message_id} className={msg.sender_email === user.email ? 'chatbox__message chatbox__message--out' : 'chatbox__message  chatbox__message--in'}>
+                        <p>{msg.content}</p>
                     </div>
                 )
             })}

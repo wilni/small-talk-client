@@ -7,6 +7,7 @@ import avatar1 from '../../assets/Images/avatar1.svg';
 
 function Connection({el}){
     const [message, setMessage] = useState([]);
+    const { user } = useAuth0();
 
 
     useEffect(() => {
@@ -17,8 +18,7 @@ function Connection({el}){
         })
     }, [])
 
-    let lastMessage = "The quick brown fox jumped over the lazy dog! ";
-    const { user} = useAuth0();
+    let lastMessage = `Send your first message to ${el.email_1 === user.email ? el.email_2 : el.email_1}`;
     return(
         <Link to={`/messages/${el.connection_id}`} key={el.connection_id} className='connection'>
         <img className='connection__avatar' alt='avatar' src={avatar1}/>
@@ -26,7 +26,7 @@ function Connection({el}){
             <div>
             <p className='connection__username'>{el.email_1 === user.email ? el.email_2 : el.email_1}</p>
             </div>
-         <p className='connection__message'>{ (message[0] != undefined) ? message[0].content : lastMessage}</p>
+         <p className='connection__message'>{ (message[0] == undefined) ? lastMessage: message[0].content}</p>
         </div>
     </Link>
     )
