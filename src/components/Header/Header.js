@@ -1,6 +1,6 @@
 
 import './Header.scss'
-import logo from '../../assets/Images/logo-option4.svg';
+import logo from '../../assets/Images/logo-option6.svg';
 import LoginBtn from '../LoginBtn/LoginBtn.js';
 import LogoutBtn from '../LogoutBtn/LogoutBtn.js';
 import { useHistory } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 function Header(props) {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { isAuthenticated } = useAuth0();
     console.log("from header", isAuthenticated);
     const history = useHistory();
     let handleClick = (e) => {
@@ -20,9 +20,7 @@ function Header(props) {
             <img className='header__logo' src={logo} alt="logo"></img>
             <nav className='navbar'>
                 <button className={'navbar__link'} onClick={handleClick}>Connections</button>
-                <LoginBtn >Login</LoginBtn>
-    
-                <LogoutBtn >Logout</LogoutBtn>
+                {isAuthenticated?<LogoutBtn >Logout</LogoutBtn>: <LoginBtn >Login</LoginBtn>}
             </nav>
         </header>
     )
