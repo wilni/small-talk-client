@@ -1,0 +1,51 @@
+@use '../../styles/partial/colors' as *;
+@use '../../styles/partial/breakpoints' as *;
+
+
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+
+    &--show {
+        opacity: 1;
+        pointer-events: visible;
+    }
+
+    &-content {
+        width: 80%;
+        background-color: $Primary;
+        transition: all 0.3s ease-in-out;
+        @include tablet {
+            width: 60%;
+        }
+        @include desktop {
+            width: 50%;
+        }
+    }
+
+
+
+    &-header, &-footer {
+        padding: 1rem;
+    }
+
+    &-body {
+        padding: 1rem;
+        border-top: 1px solid $Secondary-light;
+        border-bottom: 1px solid $Secondary-light;
+    }
+
+    &-input {
+        width: 100%;
+    }
+}

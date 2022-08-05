@@ -27,7 +27,7 @@
         flex-direction: column;
         justify-content: center;
         background-color: $Message-background;
-        padding: 8rem 2rem 1rem 2rem;
+        padding: 15rem 2rem 1rem 2rem;
         row-gap: 0.5rem;
         overflow: scroll;
         max-height: 20rem;
@@ -61,6 +61,7 @@
         }
         &-submit {
             margin: 1rem;
+            background: url(../../assets/Images/send_icon.svg) no-repeat;
             &-holder {
                 max-width: 5rem;
                 max-height: 5rem;
