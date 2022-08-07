@@ -44,8 +44,22 @@ function ConnectionsList(props) {
     }, [])
 
 
+    //use effect for escape form modal if modal is open
+    useEffect(() => {
+        if(showModal){
+            document.addEventListener("keydown", handleKeydown);
+        }
+        return () => { document.removeEventListener('keydown', handleKeydown) }
+    }, [showModal])
+
+    const handleKeydown = (e) => {
+        if(e.key === "Escape"){
+            setShowModal(false);
+        }
+    }
+
+
     const handleClick = () => {
-        console.log("clicked");
         setShowModal(true)
     }
 
@@ -80,14 +94,18 @@ function ConnectionsList(props) {
             <div className='chats-options' onClick={handleClick}>
                 <img className='chats-options-img' alt='add friends icon' src={addFriendsIcon} />
             </div>
-            <ConnectionModal show={showModal} onClose={(e) => { e.preventDefault(); setShowModal(false) }} onSubmit={(e) => {
-                e.preventDefault();
-                let email = e.target.newConnection.value;
-                console.log("submitted", email);
-                addConnection(email);
-                e.target.newConnection.value = "";
-                setShowModal(false);
-            }} />
+            <ConnectionModal
+                show={showModal}
+                onClose={(e) => { e.preventDefault(); setShowModal(false) }}
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    let email = e.target.newConnection.value;
+                    console.log("submitted", email);
+                    addConnection(email);
+                    e.target.newConnection.value = "";
+                    setShowModal(false);
+                }} 
+                />
         </>
 
     )
