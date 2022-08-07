@@ -1,0 +1,18 @@
+@use '../../styles/partial/colors' as *;
+@use '../../styles/partial/breakpoints' as *;
+@use '../../components/Header/Header.scss' as *;
+
+.board {
+    width: 100%;
+    height: 100%;
+    background-color: $Primary;
+    // border: 1px solid $Secondary;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex: 33%;
+    display: flex;
+    flex-direction: row;
+}

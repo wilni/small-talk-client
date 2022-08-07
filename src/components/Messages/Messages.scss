@@ -58,6 +58,9 @@
             width: 100%;
             min-height: 4rem;
             padding: 1rem;
+            &:focus {
+                outline-color: $Tertiary;
+            }
         }
         &-submit {
             margin: 1rem;
@@ -71,6 +74,19 @@
                     background-color: $Secondary-light;
                     border-radius: 50%;
                 }
+            }
+        }
+    }
+    &-options {
+        display: flex;
+        justify-content: center;
+        padding: 0rem 0rem 1rem 0rem;
+        &-img {
+            max-width: 50px;
+            max-height: 50px;
+            &:hover {
+                border-radius: 25px;
+                background-color: $Secondary-light;
             }
         }
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import './ConnectionModal.scss';
 import { ReactDOM } from "react";
-
+import backArrow from '../../assets/Images/back_arrow_icon.svg';
 
 function ConnectionModal(props) {
     // if (!props.show) {
@@ -11,17 +11,17 @@ function ConnectionModal(props) {
 
     return (
         <div className={`modal ${props.show ? 'modal--show' : ''}`} onClick={props.onClose}>
-            <div className="modal-content" onClick={e => e.stopPropagation()}>
-                <div className="modal-header">
-                    <h4 className="modal-title"> Add a connection</h4>
+            <div className="modal__content" onClick={e => e.stopPropagation()}>
+                <div className="modal__header">
+                <img className='modal__back-arrow' onClick={props.onClose} src={backArrow} alt="back arrow"></img>
+                    <h4 className="modal__title"> Add a connection</h4>
                 </div>
-                <form onSubmit={props.onSubmit}>
-                    <div className="modal-body">
-                        <input className="modal-input" name="newConnection" type={'text'} placeholder="enter your connections name"></input>
+                <form className="modal__form" onSubmit={props.onSubmit}>
+                    <div className="modal__body">
+                        <input className="modal__input" name="newConnection" type={'text'} placeholder="enter your connections name"></input>
                     </div>
-                    <div className="modal-footer">
-                        <button >submit</button>
-                        <button onClick={props.onClose}>close</button>
+                    <div className="modal__footer">
+                        <button  className="button button-modal">submit</button>
                     </div>
                 </form>
 

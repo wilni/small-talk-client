@@ -17,6 +17,22 @@
     transition: all 0.3s ease-in-out;
     pointer-events: none;
 
+    &__title {
+        align-self: center;
+    }
+
+    &__back-arrow {
+        max-width: 38px;
+        max-height: 38px;
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        &:hover {
+            background-color: $Secondary-light;
+            border-radius: 25px;
+        }
+    }
+
     &--show {
         opacity: 1;
         pointer-events: visible;
@@ -43,6 +59,13 @@
         padding: 1rem;
     }
 
+    &__header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+    }
+
     &__footer {
         width: 100%;
         display: flex;
@@ -56,9 +79,12 @@
 
     &__body {
         width: 100%;
+        height: 100%;
         padding: 1rem;
         border-top: 1px solid $Secondary-light;
         border-bottom: 1px solid $Secondary-light;
+        display: flex;
+        flex-direction: column;
     }
 
     &__input {

@@ -19,7 +19,7 @@ function Header(props) {
         <header className='header'>
             <img className='header__logo' src={logo} alt="logo"></img>
             <nav className='navbar'>
-                <button className={'navbar__link'} onClick={handleClick}>Connections</button>
+                <button className={'navbar__link button'} onClick={handleClick}>Connections</button>
                 {isAuthenticated?<LogoutBtn >Logout</LogoutBtn>: <LoginBtn >Login</LoginBtn>}
             </nav>
         </header>
