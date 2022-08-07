@@ -1,11 +1,9 @@
 import './Board.scss';
 import React, {useState, useEffect} from 'react';
 import Square from '../Square/Square.js';
-import { useAuth0 } from "@auth0/auth0-react";
 
 
 function Board({socket, connection_id}){
-    const { user } = useAuth0();
     const [board, setBoard] = useState(() => ['','','','','','','','','']);
     const [player, setPlayer] = useState('X');
     const [turn, setTurn] = useState("X");
@@ -16,7 +14,13 @@ function Board({socket, connection_id}){
             socket.emit('played-turn', {
                 square: square,
                 player: player,
-                connection_id: connection_id
+                connection_id: connection_id,
+                board: board.map((value, index) => {
+                    if(index === square && value === ''){
+                        return player;
+                    }
+                    return value;
+                })
             });
             setBoard(board.map((value, index) => {
                 if(index === square && value === ''){
@@ -28,14 +32,13 @@ function Board({socket, connection_id}){
     }
 
     useEffect(() => {
-        let boardSnap = board;
-        const handler = (data) => {
+        const handler =  (data) => {
             console.log("this is recieved turn", data);
             const currentPlayer = data.player === "X" ? "O" : "X";
             setPlayer(currentPlayer);
             setTurn(currentPlayer);
-            console.log("board napshot", boardSnap);
-            setBoard(board.map((value, index) => {
+            console.log("board", board);
+            setBoard(data.board.map((value, index) => {
                 if(index === data.square && value === ''){
                     return data.player;
                 }
