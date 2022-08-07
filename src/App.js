@@ -3,9 +3,14 @@ import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import ConnectionsList from './components/ConnectionsList/ConnectionsList.js';
 import Messages from './components/Messages/Messages.js';
+import ConnectionModal from './components/ConnectionModal/ConnectionModal.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useState } from 'react';
 import axios from 'axios';
+
+import { ToastContainer } from 'react-toastify';
+
 
 
 
@@ -37,7 +42,6 @@ function App() {
               console.log('res from post front end', res)
             })
         }
-
       })
   }
 
@@ -46,15 +50,25 @@ function App() {
   return (
 
     <Router>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+      />
       <main className='App'>
         <Header auth={isAuthenticated} />
         <div className='card'>
           <Switch>
-            <Route path={'/messages'} component={Messages} />
+            <Route path={'/messages/:id'} component={Messages} />
             <Route path={'/'} component={ConnectionsList} />
           </Switch>
         </div>
-        {/* <p>{JSON.stringify(user)}</p> */}
         <Footer />
       </main>
     </Router>

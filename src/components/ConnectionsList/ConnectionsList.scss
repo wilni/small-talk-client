@@ -5,8 +5,20 @@
     display: flex;
     flex-direction: column;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    overflow: scroll;
     @include tablet {
         padding: 1rem 1rem 1rem 1rem;   
+    }
+    &-options {
+        display: flex;
+        justify-content: center;
+        padding: 0rem 0rem 1rem 0rem;
+        &-img {
+            &:hover {
+                border-radius: 25px;
+                background-color: $Secondary-light;
+            }
+        }
     }
 }
 
@@ -17,6 +29,10 @@
     align-items: center;
     text-decoration: none;
     color: $Secondary;
+    &:hover {
+        background-color: $Primary;
+        border-radius: 10px;
+    }
 
     &__text {
         display: flex;
@@ -34,4 +50,8 @@
         flex-basis: 100%;
         margin-bottom: 0.5rem;
     }
+}
+
+.Toastify {
+    align-self: center;
 }

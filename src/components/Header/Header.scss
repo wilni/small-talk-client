@@ -1,5 +1,6 @@
 @use "../../styles/partial/colors"as *;
 @use '../../styles/partial/breakpoints'as *;
+@use '../../styles/partial/global' as *;
 
 
 
@@ -9,17 +10,13 @@
     align-items: center;
     background-color: $Primary;
     width: 100%;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 
     &__logo {
         width: 70vw;
         padding-bottom: 0.2rem;
 
         @include tablet {
-            width: 50vw;
-        }
-
-        @include desktop {
             width: 40vw;
         }
     }
@@ -34,26 +31,5 @@
         column-gap: 10rem;
     }
 
-    &__link {
-        flex-shrink: 0;
-        flex-basis: 50%;
-        width: 50%;
-        text-decoration: none;
-        color: white;
-        padding: 0.5rem;
-        border-radius: 20px;
-        background-blend-mode: difference;
-        background-color: black;
-        margin-bottom: 0.5rem;
-
-        &:hover {
-            background-color: $Primary;
-            color: $Secondary;
-        }
-
-        @include tablet {
-            flex-basis: 65%;
-            margin-bottom: 2rem;
-        }
-    }
 }
+
