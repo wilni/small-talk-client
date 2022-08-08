@@ -33,19 +33,31 @@ function ConnectionsList(props) {
         draggable: true,
         progress: undefined,
     });
-    // console.log("render connection")
 
     useEffect(() => {
         axios.get(`http://localhost:8080/connections/${user.email}`)
             .then(res => {
-                console.log("conection data", res.data);
                 setConnections(res.data)
             })
     }, [])
 
 
+    //use effect for escape form modal if modal is open
+    useEffect(() => {
+        if(showModal){
+            document.addEventListener("keydown", handleKeydown);
+        }
+        return () => { document.removeEventListener('keydown', handleKeydown) }
+    }, [showModal])
+
+    const handleKeydown = (e) => {
+        if(e.key === "Escape"){
+            setShowModal(false);
+        }
+    }
+
+
     const handleClick = () => {
-        console.log("clicked");
         setShowModal(true)
     }
 
@@ -57,7 +69,6 @@ function ConnectionsList(props) {
         }
         axios.post(`http://localhost:8080/connections`, newConnectionInfo)
             .then(res => {
-                console.log("res from add connection call", res);
                 if (res.status === 201) {
                     setConnections(prevConnections => [...prevConnections, newConnectionInfo]);
                 } else {
@@ -80,14 +91,17 @@ function ConnectionsList(props) {
             <div className='chats-options' onClick={handleClick}>
                 <img className='chats-options-img' alt='add friends icon' src={addFriendsIcon} />
             </div>
-            <ConnectionModal show={showModal} onClose={(e) => { e.preventDefault(); setShowModal(false) }} onSubmit={(e) => {
-                e.preventDefault();
-                let email = e.target.newConnection.value;
-                console.log("submitted", email);
-                addConnection(email);
-                e.target.newConnection.value = "";
-                setShowModal(false);
-            }} />
+            <ConnectionModal
+                show={showModal}
+                onClose={(e) => { e.preventDefault(); setShowModal(false) }}
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    let email = e.target.newConnection.value;
+                    addConnection(email);
+                    e.target.newConnection.value = "";
+                    setShowModal(false);
+                }} 
+                />
         </>
 
     )
