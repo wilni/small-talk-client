@@ -5,7 +5,6 @@ import App from './App';
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-console.log("env log", process.env);
 root.render(
     <Auth0Provider
     domain={process.env.REACT_APP_AUTH0_DOMAIN}

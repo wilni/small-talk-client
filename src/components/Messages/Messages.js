@@ -33,28 +33,48 @@ function Messages({ match }) {
     let history = useHistory();
     let connection_id = match.params.id;
 
-    console.log("render before scroll")
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
 
     const handleClick = () => {
-        console.log("clicked");
         setShowModal(true)
     }
 
+    //functions for submitting messages from form submit and enter key press
     const handleSubmit = (e) => {
         e.preventDefault();
-        let msg = {
-            recipient_email: connection,
-            sender_email: user.email,
-            connection_id: connection_id,
-            content: e.target.message.value,
-            sent_at: Date.now(),
-            message_id: uniqid()
+        if (e.target.message.value !== '') {
+            let msg = {
+                recipient_email: connection,
+                sender_email: user.email,
+                connection_id: connection_id,
+                content: e.target.message.value,
+                sent_at: Date.now(),
+                message_id: uniqid()
+            }
+            socket.emit('send-message', { msg, connection_id });
+            setMessages(prevMessages => [...prevMessages, msg])
+            e.target.message.value = "";
+            axios.post('http://localhost:8080/messages', msg).then(res => console.log(res))
         }
-        socket.emit('send-message', { msg, connection_id });
-        setMessages(prevMessages => [...prevMessages, msg])
-        e.target.message.value = "";
-        axios.post('http://localhost:8080/messages', msg).then(res => console.log(res))
+
+    }
+
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter" && !e.shiftKey && e.target.value !== '') {
+            e.preventDefault();
+            let msg = {
+                recipient_email: connection,
+                sender_email: user.email,
+                connection_id: connection_id,
+                content: e.target.value,
+                sent_at: Date.now(),
+                message_id: uniqid()
+            }
+            socket.emit('send-message', { msg, connection_id });
+            setMessages(prevMessages => [...prevMessages, msg])
+            e.target.value = "";
+            axios.post('http://localhost:8080/messages', msg)
+        }
     }
 
     // side effect gets all messages and sets it on load
@@ -62,34 +82,44 @@ function Messages({ match }) {
     useEffect(() => {
         axios.get(`http://localhost:8080/messages/${connection_id}`)
             .then(res => {
-                console.log("messages data", res.data);
                 setMessages(res.data)
                 socket.emit("join_room", connection_id);
             })
         axios.get(`http://localhost:8080/connection/${connection_id}`)
             .then(res => {
-                console.log('res ffrom connection call', res.data[0]);
                 if (res.data[0].email_1 === user.email) {
                     setConnection(res.data[0].email_2);
                 } else {
                     setConnection(res.data[0].email_1);
                 }
             })
-        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [])
-
-    // side effect to recieve message
-    useEffect(() => {
         const handler = (data) => {
-            console.log("this is recieved message", data);
             setMessages(prevMessages => [...prevMessages, data])
         }
         socket.on('recieved-message', handler);
-        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
         return () => {
             socket.off('recieved-message', handler);
         }
-    }, [socket])
+    }, [])
+
+    // side effect to scroll to bottom
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    })
+
+    //use effect for escape form modal if modal is open
+    useEffect(() => {
+        if (showModal) {
+            document.addEventListener("keydown", handleKeydown);
+        }
+        return () => { document.removeEventListener('keydown', handleKeydown) }
+    }, [showModal])
+
+    const handleKeydown = (e) => {
+        if (e.key === "Escape") {
+            setShowModal(false);
+        }
+    }
 
 
     return (
@@ -111,7 +141,9 @@ function Messages({ match }) {
                     <div ref={bottomRef} />
                 </div>
                 <form className='chatbox__input' onSubmit={handleSubmit}>
-                    <textarea className='chatbox__input-text' name='message' placeholder='type your message'></textarea>
+                    <textarea
+                        className='chatbox__input-text' name='message' placeholder='type your message' onKeyPress={handleKeyPress}>
+                    </textarea>
                     <div className='chatbox__input-submit-holder'>
                         <input type='image' className='chatbox__input-submit' src={sendIcon} alt="submit"></input>
                     </div>
@@ -124,7 +156,8 @@ function Messages({ match }) {
                 show={showModal}
                 onClose={(e) => { e.preventDefault(); setShowModal(false) }}
                 socket={socket}
-                connection_id={connection_id} />
+                connection_id={connection_id}
+                connection={connection} />
         </>
 
     )
