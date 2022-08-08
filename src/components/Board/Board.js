@@ -67,7 +67,6 @@ function Board({socket, connection_id, result, setResult, connection}){
             if(foundWinner){
                 setResult({winner: firstSpace})
                 let winner = '';
-                console.log("log from win check", firstSpace, player);
                 if(firstSpace === player){
                     winner = user.email;
                 }else{

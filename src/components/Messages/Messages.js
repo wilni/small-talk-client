@@ -33,11 +33,9 @@ function Messages({ match }) {
     let history = useHistory();
     let connection_id = match.params.id;
 
-    console.log("render before scroll")
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
 
     const handleClick = () => {
-        console.log("clicked");
         setShowModal(true)
     }
 
@@ -64,7 +62,6 @@ function Messages({ match }) {
     const handleKeyPress = (e) => {
         if (e.key === "Enter" && !e.shiftKey && e.target.value !== '') {
             e.preventDefault();
-            console.log("event ", e)
             let msg = {
                 recipient_email: connection,
                 sender_email: user.email,
@@ -76,7 +73,7 @@ function Messages({ match }) {
             socket.emit('send-message', { msg, connection_id });
             setMessages(prevMessages => [...prevMessages, msg])
             e.target.value = "";
-            axios.post('http://localhost:8080/messages', msg).then(res => console.log(res))
+            axios.post('http://localhost:8080/messages', msg)
         }
     }
 
@@ -85,34 +82,30 @@ function Messages({ match }) {
     useEffect(() => {
         axios.get(`http://localhost:8080/messages/${connection_id}`)
             .then(res => {
-                console.log("messages data", res.data);
                 setMessages(res.data)
                 socket.emit("join_room", connection_id);
             })
         axios.get(`http://localhost:8080/connection/${connection_id}`)
             .then(res => {
-                console.log('res ffrom connection call', res.data[0]);
                 if (res.data[0].email_1 === user.email) {
                     setConnection(res.data[0].email_2);
                 } else {
                     setConnection(res.data[0].email_1);
                 }
             })
-        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [])
-
-    // side effect to recieve message
-    useEffect(() => {
         const handler = (data) => {
-            console.log("this is recieved message", data);
             setMessages(prevMessages => [...prevMessages, data])
         }
         socket.on('recieved-message', handler);
-        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
         return () => {
             socket.off('recieved-message', handler);
         }
-    }, [socket])
+    }, [])
+
+    // side effect to scroll to bottom
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    })
 
     //use effect for escape form modal if modal is open
     useEffect(() => {
@@ -163,8 +156,8 @@ function Messages({ match }) {
                 show={showModal}
                 onClose={(e) => { e.preventDefault(); setShowModal(false) }}
                 socket={socket}
-                connection_id={connection_id} 
-                connection={connection}/>
+                connection_id={connection_id}
+                connection={connection} />
         </>
 
     )

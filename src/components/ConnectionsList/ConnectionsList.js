@@ -33,12 +33,10 @@ function ConnectionsList(props) {
         draggable: true,
         progress: undefined,
     });
-    // console.log("render connection")
 
     useEffect(() => {
         axios.get(`http://localhost:8080/connections/${user.email}`)
             .then(res => {
-                console.log("conection data", res.data);
                 setConnections(res.data)
             })
     }, [])
@@ -71,7 +69,6 @@ function ConnectionsList(props) {
         }
         axios.post(`http://localhost:8080/connections`, newConnectionInfo)
             .then(res => {
-                console.log("res from add connection call", res);
                 if (res.status === 201) {
                     setConnections(prevConnections => [...prevConnections, newConnectionInfo]);
                 } else {
@@ -100,7 +97,6 @@ function ConnectionsList(props) {
                 onSubmit={(e) => {
                     e.preventDefault();
                     let email = e.target.newConnection.value;
-                    console.log("submitted", email);
                     addConnection(email);
                     e.target.newConnection.value = "";
                     setShowModal(false);

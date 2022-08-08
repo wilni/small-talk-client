@@ -12,11 +12,8 @@ import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 
 
-
-
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log("from app", isAuthenticated);
   if (isLoading) {
     return (<div>Loading ...</div>);
   }
@@ -34,13 +31,8 @@ function App() {
     axios.get(`http://localhost:8080/user/${user.email}`)
       .then(res => {
         if (res.data.sucess) {
-          console.log("res form front end is true, user is already in database", res.data.sucess);
         } else {
-          console.log("res form front end is false we need to add user to db", res.data.sucess);
           axios.post(`http://localhost:8080/user/${user.email}`)
-            .then(res => {
-              console.log('res from post front end', res)
-            })
         }
       })
   }
