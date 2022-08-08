@@ -85,7 +85,7 @@ function Messages({ match }) {
                 setMessages(res.data)
                 socket.emit("join_room", connection_id);
             })
-        axios.get(`http://localhost:8080/connection/${connection_id}`)
+        axios.get(`http://localhost:8080/connections/${connection_id}/id`)
             .then(res => {
                 if (res.data[0].email_1 === user.email) {
                     setConnection(res.data[0].email_2);
