@@ -3,9 +3,9 @@ import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import ConnectionsList from './components/ConnectionsList/ConnectionsList.js';
 import Messages from './components/Messages/Messages.js';
+import LoginScreen from './components/LoginScreen/LoginScreen.js'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from './config/index.js';
 
@@ -22,7 +22,7 @@ function App() {
     return (
       <>
         <Header isAuthenticated={isAuthenticated} />
-        <div>Please sign in</div>
+        <LoginScreen></LoginScreen>
       </>
     )
   } else {

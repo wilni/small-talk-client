@@ -1,0 +1,17 @@
+@use '../../styles/partial/colors' as *;
+
+.login {
+    background: url(../../assets/Images/loginScrren.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__title {
+        font-size: 3rem;
+        font-weight: 500;
+        color: $Primary;
+    }
+}
