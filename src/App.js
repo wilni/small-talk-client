@@ -3,11 +3,11 @@ import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import ConnectionsList from './components/ConnectionsList/ConnectionsList.js';
 import Messages from './components/Messages/Messages.js';
-import ConnectionModal from './components/ConnectionModal/ConnectionModal.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from './config/index.js';
 
 import { ToastContainer } from 'react-toastify';
 
@@ -28,11 +28,11 @@ function App() {
   } else {
     //check if there is user with email in database 
     // if !user send a post to back end 
-    axios.get(`http://localhost:8080/user/${user.email}`)
+    axios.get(`${API_URL}/user/${user.email}`)
       .then(res => {
         if (res.data.sucess) {
         } else {
-          axios.post(`http://localhost:8080/user/${user.email}`)
+          axios.post(`${API_URL}/user/${user.email}`)
         }
       })
   }

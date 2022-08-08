@@ -8,6 +8,7 @@ import addFriendsIcon from '..//../assets/Images/add-friends.svg'
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_URL } from '../../config/index.js';
 
 import ConnectionModal from '../ConnectionModal/ConnectionModal';
 // import avatar1 from '../../assets/Images/avatar1.svg';
@@ -35,7 +36,7 @@ function ConnectionsList(props) {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/connections/${user.email}`)
+        axios.get(`${API_URL}/connections/${user.email}`)
             .then(res => {
                 setConnections(res.data)
             })
@@ -67,7 +68,7 @@ function ConnectionsList(props) {
             email_1: user.email,
             email_2: email
         }
-        axios.post(`http://localhost:8080/connections`, newConnectionInfo)
+        axios.post(`${API_URL}/connections`, newConnectionInfo)
             .then(res => {
                 if (res.status === 201) {
                     setConnections(prevConnections => [...prevConnections, newConnectionInfo]);

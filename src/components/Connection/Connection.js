@@ -4,6 +4,7 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import avatar1 from '../../assets/Images/avatar1.svg';
+import {API_URL} from '../../config/index.js';
 
 function Connection({el}){
     const [message, setMessage] = useState([]);
@@ -11,7 +12,7 @@ function Connection({el}){
 
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/messages/${el.connection_id}/last`)
+        axios.get(`${API_URL}/messages/${el.connection_id}/last`)
         .then(res => {
             setMessage(res.data)
         })

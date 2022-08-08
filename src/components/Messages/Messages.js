@@ -17,6 +17,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
 import uniqid from 'uniqid';
 const { io } = require("socket.io-client");
+import { API_URL } from '../../config/index.js';
 
 const socket = io.connect('http://localhost:8080');
 
@@ -54,7 +55,7 @@ function Messages({ match }) {
             socket.emit('send-message', { msg, connection_id });
             setMessages(prevMessages => [...prevMessages, msg])
             e.target.message.value = "";
-            axios.post('http://localhost:8080/messages', msg).then(res => console.log(res))
+            axios.post(`${API_URL}/messages`, msg).then(res => console.log(res))
         }
 
     }
@@ -73,19 +74,19 @@ function Messages({ match }) {
             socket.emit('send-message', { msg, connection_id });
             setMessages(prevMessages => [...prevMessages, msg])
             e.target.value = "";
-            axios.post('http://localhost:8080/messages', msg)
+            axios.post(`${API_URL}/messages`, msg)
         }
     }
 
     // side effect gets all messages and sets it on load
     //also sets name of connection displayed and joins socket room for connection 
     useEffect(() => {
-        axios.get(`http://localhost:8080/messages/${connection_id}`)
+        axios.get(`${API_URL}/messages/${connection_id}`)
             .then(res => {
                 setMessages(res.data)
                 socket.emit("join_room", connection_id);
             })
-        axios.get(`http://localhost:8080/connections/${connection_id}/id`)
+        axios.get(`${API_URL}/connections/${connection_id}/id`)
             .then(res => {
                 if (res.data[0].email_1 === user.email) {
                     setConnection(res.data[0].email_2);
