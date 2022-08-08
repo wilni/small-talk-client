@@ -25,7 +25,7 @@ const socket = io.connect(`${API_URL}`);
 
 socket.on('connect', () => {
     console.log(`socket conected ${socket.id}`);
-})
+}) 
 
 function Messages({ match }) {
     const [messages, setMessages] = useState(() => []);
