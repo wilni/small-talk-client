@@ -16,8 +16,10 @@ import { useHistory } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
 import uniqid from 'uniqid';
-const { io } = require("socket.io-client");
 import { API_URL } from '../../config/index.js';
+const { io } = require("socket.io-client");
+
+
 
 const socket = io.connect('http://localhost:8080');
 
