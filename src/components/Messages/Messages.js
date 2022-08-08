@@ -21,7 +21,7 @@ const { io } = require("socket.io-client");
 
 
 
-const socket = io.connect('http://localhost:8080');
+const socket = io.connect(`${API_URL}`);
 
 socket.on('connect', () => {
     console.log(`socket conected ${socket.id}`);
