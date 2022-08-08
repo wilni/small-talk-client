@@ -9,7 +9,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function Header(props) {
     const { isAuthenticated } = useAuth0();
-    console.log("from header", isAuthenticated);
     const history = useHistory();
     let handleClick = (e) => {
         e.preventDefault();

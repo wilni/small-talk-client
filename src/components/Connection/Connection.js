@@ -13,7 +13,6 @@ function Connection({el}){
     useEffect(() => {
         axios.get(`http://localhost:8080/messages/${el.connection_id}/last`)
         .then(res => {
-            console.log(`last message data from connection ${el.connection_id}`,res.data);
             setMessage(res.data)
         })
     }, [])
