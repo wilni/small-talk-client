@@ -55,3 +55,13 @@
 .Toastify {
     align-self: center;
 }
+
+.frag{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 1rem 0rem;
+    &__message {
+        text-align: center;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+    }
+}

@@ -5,13 +5,14 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 70vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
     &__title {
         font-size: 3rem;
         font-weight: 500;
+        padding: 1rem;
         color: $Primary;
     }
 }

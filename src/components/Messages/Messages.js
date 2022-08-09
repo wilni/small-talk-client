@@ -153,7 +153,11 @@ function Messages({ match }) {
                 </form>
             </div>
             <div className='chatbox-options' onClick={handleClick}>
+                <h3 className='chatbox-options__title'>Games!</h3>
+                <hr></hr>
+                <div className='chatbox-options__games'>
                 <img className='chatbox-options-img' alt='tic tak toe' src={ticTakToe} />
+                </div>
             </div>
             <GameModal
                 show={showModal}

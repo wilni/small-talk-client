@@ -3,7 +3,7 @@ import './Header.scss'
 import logo from '../../assets/Images/logo-option6.svg';
 import LoginBtn from '../LoginBtn/LoginBtn.js';
 import LogoutBtn from '../LogoutBtn/LogoutBtn.js';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
 
@@ -16,10 +16,10 @@ function Header(props) {
     }
     return (
         <header className='header'>
-            <img className='header__logo' src={logo} alt="logo"></img>
+            <img className='header__logo' onClick={handleClick} src={logo} alt="logo"/>
             <nav className='navbar'>
                 <button className={'navbar__link button'} onClick={handleClick}>Connections</button>
-                {isAuthenticated?<LogoutBtn >Logout</LogoutBtn>: <LoginBtn >Login</LoginBtn>}
+                {isAuthenticated ? <LogoutBtn >Logout</LogoutBtn> : <LoginBtn >Login</LoginBtn>}
             </nav>
         </header>
     )

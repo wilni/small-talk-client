@@ -11,13 +11,22 @@
     background-color: $Primary;
     width: 100%;
     padding-bottom: 2rem;
+    max-height: 11rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 1rem;
+        padding-left: 2rem;
+        align-items: flex-end;
+    }
 
     &__logo {
-        width: 70vw;
+        width: 50vw;
         padding-bottom: 0.2rem;
 
         @include tablet {
-            width: 40vw;
+            width: 25vw;
         }
     }
 }
@@ -28,8 +37,18 @@
     column-gap: 4rem;
 
     @include tablet {
-        column-gap: 10rem;
+        column-gap: 2rem;
+        justify-content: flex-end;
+        margin-right: 2rem;
+    }
+
+    &__link {
+        @include tablet {
+            flex-basis: 90%;
+        }
     }
 
 }
+
+
 

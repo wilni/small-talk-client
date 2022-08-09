@@ -59,7 +59,7 @@ function ConnectionsList(props) {
 
 
     const handleClick = () => {
-        setShowModal(true)
+        setShowModal(true);
     }
 
     const addConnection = (email) => {
@@ -82,8 +82,7 @@ function ConnectionsList(props) {
     return (
         <>
             <section className='chats'>
-
-                {connections.map(el => {
+                {connections.length === 0?<div className={'frag'}><p className='frag__message'>No connections...</p><p className='frag__message'>add some friends!</p> </div>  : connections.map(el => {
                     return (
                         <Connection key={el.connection_id} el={el} />
                     )

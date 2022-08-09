@@ -23,6 +23,7 @@ function App() {
       <>
         <Header isAuthenticated={isAuthenticated} />
         <LoginScreen></LoginScreen>
+        <Footer/>
       </>
     )
   } else {
