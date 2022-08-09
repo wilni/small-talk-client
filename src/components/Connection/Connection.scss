@@ -44,5 +44,8 @@
         @include tablet {
             right: 3rem;
         }
+        @include desktop {
+            right: 5rem;
+        }
     }
 }
