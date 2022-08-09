@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import './GameModal.scss';
 import backArrow from '../../assets/Images/back_arrow_icon.svg';
 
 import Board from '../Board/Board.js'
 
 
-function GameModal({socket, onClose, show, connection_id, connection}) {
+function GameModal({socket, onClose, show, connection_id, connection, setShowModal}) {
     const [result, setResult] = useState({winner: 'none'})
     return (
         <div className={`modal ${show ? 'modal--show' : ''}`} onClick={onClose}>
@@ -15,7 +15,9 @@ function GameModal({socket, onClose, show, connection_id, connection}) {
                     <h4 className="modal__title"> Tic-Tak-Toe</h4>
                 </div>
                     <div className="modal__body">
-                        <Board socket={socket} connection_id={connection_id} result={result} setResult={setResult} connection={connection}/>
+                        <Board 
+                        socket={socket} connection_id={connection_id} result={result}
+                        setResult={setResult} connection={connection} setShowModal={setShowModal}/>
                     </div>
             </div>
         </div>

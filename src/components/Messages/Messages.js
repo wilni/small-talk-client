@@ -160,7 +160,7 @@ function Messages({ match }) {
                 </div>
             </div>
             <GameModal
-                show={showModal}
+                show={showModal} setShowModal={setShowModal}
                 onClose={(e) => { e.preventDefault(); setShowModal(false) }}
                 socket={socket}
                 connection_id={connection_id}

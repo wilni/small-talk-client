@@ -15,7 +15,7 @@ const winningPatterns = [
     [2,4,6],
 ]
 
-function Board({socket, connection_id, result, setResult, connection}){
+function Board({socket, connection_id, result, setResult, connection, setShowModal}){
     const [board, setBoard] = useState(() => ['','','','','','','','','']);
     const [player, setPlayer] = useState('X');
     const [turn, setTurn] = useState("X");
@@ -111,6 +111,7 @@ function Board({socket, connection_id, result, setResult, connection}){
                 }
                 return value;
             }))
+            setShowModal(true);
         }
         socket.on('recieved-turn', handler);
         return () => {
