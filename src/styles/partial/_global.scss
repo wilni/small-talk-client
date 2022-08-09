@@ -21,6 +21,9 @@
 
     @include tablet {
         flex-basis: 65%;
+        margin-bottom: 1rem;
+    }
+    @include desktop {
         margin-bottom: 2rem;
     }
 }
