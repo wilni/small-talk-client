@@ -12,23 +12,37 @@ function Connection({ el, setConnections }) {
     const { user } = useAuth0();
 
     const deleteConnection = () => {
-        console.log("clicked")
         axios.delete(`${API_URL}/connections/${el.connection_id}`)
-        .then(res => {
-            setConnections((prevConnections) => prevConnections.filter(connection => connection.connection_id !== el.connection_id))
-        })
+            .then(res => {
+                setConnections((prevConnections) => prevConnections.filter(connection => connection.connection_id !== el.connection_id))
+            })
     }
 
     useEffect(() => {
         axios.get(`${API_URL}/messages/${el.connection_id}/last`)
             .then(res => {
-                console.log(res.data)
-                setMessage(res.data)
+                console.log("msg from call to back end", res.data)
+                if (res.data[0] === null) {
+                    let email = el.email_1 === user.email ? el.email_2 : el.email_1;
+                    let msg = {
+                        connection_id: el.connection_id,
+                        content: `Send your first message to ${email}`,
+                        message_id: "1000",
+                        read: 1,
+                        recipient_email: el.email,
+                        sender_email: email,
+                        sent_at: Date.now()
+                    }
+                    setMessage([msg])
+                } else {
+                    setMessage(res.data)
+                }
+
             })
     }, [])
 
     let lastMessage = `Send your first message to ${el.email_1 === user.email ? el.email_2 : el.email_1}`;
-    // if(message[0] != null){
+    if (message[0] != null) {
         return (
             <div className='connection__wrapper'>
                 <Link to={`/messages/${el.connection_id}`} key={el.connection_id} className='connection'>
@@ -38,15 +52,15 @@ function Connection({ el, setConnections }) {
                             <p className='connection__username'>{el.email_1 === user.email ? el.email_2 : el.email_1}</p>
                         </div>
                         <div className='connection__message'>
-                        {/* {message[0].read == 0 ? <img className='connection__notif' src={mailbox} alt='new message'/>: console.log("meg",message[0])} */}
-                        <p className='connection__message-text'>{(message[0] == undefined) ? lastMessage : message[0].content}</p>
+                            {message[0].read === 0 ? <img className='connection__notif' src={mailbox} alt='new message' /> : console.log("meg", message[0])}
+                            <p className='connection__message-text'>{(message[0] == undefined) ? lastMessage : message[0].content}</p>
                         </div>
                     </div>
                 </Link>
                 <button onClick={() => deleteConnection()} className='connection__delete'>🗑️</button>
             </div>
         )
-    // }
+    }
 
 }
 
