@@ -49,4 +49,13 @@
             right: 5rem;
         }
     }
+    &__message {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+    }
+    &__notif {
+        height: 20px;
+        width: 20px;
+    }
 }

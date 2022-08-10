@@ -117,7 +117,7 @@ function Board({socket, connection_id, result, setResult, connection, setShowMod
         return () => {
             socket.off('recieved-turn', handler);
         }
-    }, [socket])
+    })
 
     // side effect for when the board is changed
     useEffect(() => {
