@@ -118,6 +118,10 @@
         &__games {
             justify-content: center;
             display: flex;
+            column-gap: 3rem;
+            @include tablet {
+                column-gap: 5rem;
+            }
         }
     }
 }

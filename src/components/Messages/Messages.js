@@ -9,6 +9,8 @@ import avatar1 from '../../assets/Images/avatar1.svg';
 import backArrow from '../../assets/Images/back_arrow_icon.svg';
 import sendIcon from '../../assets/Images/send_icon.svg';
 import ticTakToe from '../../assets/Images/tic-tac-toe.svg';
+import simonImg from '../../assets/Images/simon_game.svg';
+import hangmanImg from '../../assets/Images/hangman.svg';
 import GameModal from '../GameModal/GameModal.js';
 
 import { useState, useEffect, useRef } from 'react';
@@ -157,6 +159,8 @@ function Messages({ match }) {
                 <hr></hr>
                 <div className='chatbox-options__games'>
                 <img className='chatbox-options-img' alt='tic tak toe' src={ticTakToe} />
+                <img className='chatbox-options-img' alt='simon game' src={simonImg} />
+                <img className='chatbox-options-img' alt='hangman' src={hangmanImg} />
                 </div>
             </div>
             <GameModal
