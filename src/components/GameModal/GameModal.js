@@ -12,7 +12,7 @@ function GameModal({socket, onClose, show, connection_id, connection, setShowMod
             <div className="modal__content" onClick={e => e.stopPropagation()}>
                 <div className="modal__header">
                         <img className='modal__back-arrow' onClick={onClose} src={backArrow} alt="back arrow"></img>
-                    <h4 className="modal__title"> Tic-Tak-Toe</h4>
+                    <h4 className="modal__title"> Tic-Tac-Toe</h4>
                 </div>
                     <div className="modal__body">
                         <Board 
