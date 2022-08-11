@@ -16,3 +16,14 @@
         color: $Primary;
     }
 }
+
+.blink {
+    animation: blinker 5s cubic-bezier(.69,.21,.16,.67) infinite;
+}
+
+@keyframes blinker {
+    70% {
+      opacity: 0;
+    }
+  }
+  
