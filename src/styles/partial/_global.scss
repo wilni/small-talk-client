@@ -17,6 +17,7 @@
     &:hover {
         background-color: $Primary;
         color: $Secondary;
+        cursor: pointer;
     }
 
     @include tablet {
