@@ -107,9 +107,21 @@ function Messages({ match }) {
         }
     }, [])
 
-    // side effect to scroll to bottom
+    // side effect to scroll to bottom on every render
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+        //get last message and see if it was sent from connection
+        axios.get(`${API_URL}/messages/${connection_id}/last`)
+        .then(res => {
+            let lastMsg = res.data[0];
+            console.log("last msg form connection",lastMsg);
+            if(lastMsg.recipient_email === user.email){
+                console.log(`last mesage was sent by ${connection}`)
+                axios.put(`${API_URL}/messages/${connection_id}`,{connection_id: connection_id})
+                .then(res => console.log("msg should be read",res))
+            }
+        })
+        //mark last message as read
     })
 
     //use effect for escape form modal if modal is open
