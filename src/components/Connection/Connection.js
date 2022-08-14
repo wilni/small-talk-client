@@ -21,7 +21,6 @@ function Connection({ el, setConnections }) {
     useEffect(() => {
         axios.get(`${API_URL}/messages/${el.connection_id}/last`)
             .then(res => {
-                console.log("msg from call to back end", res.data)
                 if (res.data[0] === null) {
                     let email = el.email_1 === user.email ? el.email_2 : el.email_1;
                     let msg = {
@@ -52,7 +51,7 @@ function Connection({ el, setConnections }) {
                             <p className='connection__username'>{el.email_1 === user.email ? el.email_2 : el.email_1}</p>
                         </div>
                         <div className='connection__message'>
-                            {(message[0].read === 0 && message[0].recipient_email === user.email) ? <img className='connection__notif' src={mailbox} alt='new message' /> : console.log("meg", message[0])}
+                            {(message[0].read === 0 && message[0].recipient_email === user.email) ? <img className='connection__notif' src={mailbox} alt='new message' /> : console.log("none")}
                             <p className='connection__message-text'>{(message[0] == undefined) ? lastMessage : message[0].content}</p>
                         </div>
                     </div>
