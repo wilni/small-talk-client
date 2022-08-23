@@ -1,70 +1,98 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Small-Talk
 
-## Available Scripts
+This is instant mesanger with live games. 
+You are able to add, delete and chat with connections as well as play live games. 
 
-In the project directory, you can run:
+It is built with React for the front end and an express server in the beack end. 
+Both the server and client side of the app need to be running synchronously. The repos are as follows. 
 
-### `npm start`
+Small-Talk-client: 
+https://github.com/wilni/small-talk-client
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Small-Talk-server: 
+https://github.com/wilni/small-talk-server
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Install and Run
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This app is built with React for the front end and an express server in the beack end. 
+Both the server and client side of the app need to be running synchronously. The repos are as follows. 
 
-### `npm run build`
+Small-Talk-client: 
+https://github.com/wilni/small-talk-client
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Small-Talk-server: 
+https://github.com/wilni/small-talk-server
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For the client side: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- clone the repository 
+- npm install
+- npm start 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For the server side: 
+- clone the repository 
+- npm install
+- node index.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    //client 
+    "axios": "^0.27.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dotenv": "^0.1.3",
+    "react-router-dom": "5.3",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.7",
+    "sass": "^1.54.0",
+    "socket.io-client": "^4.5.1",
+    "uniqid": "^5.4.0",
+    
+    //server
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.5.1",
+    "uniqid": "^5.4.0"
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Lessons Learned
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+From this project I became familiar with a lot of new technologies and aspects of web developmet. I implemented only functional components and websockets wich were both new to me. This was also the first application wher I deployed not onlya front end but also a back end server. I had to navigate a few things to set up my production database and enviroment.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## next steps 
 
-### Analyzing the Bundle Size
+- add more games (simon, hangman)
+- implement end to end encryption
+- create a react native version to deploy app on iOS, android as well as the web.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
+MIT License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Copyright (c) 2022 Wilniyobri Tavarez
 
-### Advanced Configuration
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
