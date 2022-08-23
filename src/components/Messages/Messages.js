@@ -165,13 +165,13 @@ function Messages({ match }) {
                     </div>
                 </form>
             </div>
-            <div className='chatbox-options' onClick={(e) => handleClick(e)}>
+            <div className='chatbox-options' >
                 <h3 className='chatbox-options__title'>Games!</h3>
                 <hr></hr>
                 <div className='chatbox-options__games'>
-                    <img className='chatbox-options-img' alt='Tic-Tak-Toe' src={ticTakToe} />
-                    <img className='chatbox-options-img' alt='Simon' src={simonImg} />
-                    <img className='chatbox-options-img' alt='Hangman' src={hangmanImg} />
+                    <img className='chatbox-options-img' alt='Tic-Tak-Toe' src={ticTakToe} onClick={(e) => handleClick(e)}/>
+                    <img className='chatbox-options-img' alt='Simon' src={simonImg} onClick={(e) => handleClick(e)} />
+                    <img className='chatbox-options-img' alt='Hangman' src={hangmanImg} onClick={(e) => handleClick(e)}/>
                 </div>
             </div>
             <GameModal
