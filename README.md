@@ -24,7 +24,30 @@ https://github.com/wilni/small-talk-server
 <img width="350" alt="Screen Shot 2022-08-23 at 4 25 18 PM" src="https://user-images.githubusercontent.com/81815266/186259935-e99ed755-7400-49b6-bf48-58c28d81aa06.png">
 </div
     
-    ##
+App Screenshots
+    
+    
+## Tech Stack
+
+#### Front End
+- React
+- Sass
+- Js
+- Axios
+
+#### Back End
+- Node Js
+- Express 
+- MySQL 
+- Knex js
+- Axios
+
+
+#### OAuth
+ - Auth0
+
+ #### deployment
+ - Heroku
 
 ## Install and Run
 
