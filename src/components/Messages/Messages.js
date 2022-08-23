@@ -27,12 +27,13 @@ const socket = io.connect(`${API_URL}`);
 
 socket.on('connect', () => {
     console.log(`socket conected ${socket.id}`);
-}) 
+})
 
 function Messages({ match }) {
     const [messages, setMessages] = useState(() => []);
     const [showModal, setShowModal] = useState(false);
     const [connection, setConnection] = useState('');
+    const [gameLaunced, setGameLaunced] = useState("Tic-Tac-Toe")
     const bottomRef = useRef(null);
     const { user } = useAuth0();
     let history = useHistory();
@@ -40,7 +41,8 @@ function Messages({ match }) {
 
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        setGameLaunced(e.target.alt)
         setShowModal(true)
     }
 
@@ -112,12 +114,12 @@ function Messages({ match }) {
         bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
         //get last message and see if it was sent from connection
         axios.get(`${API_URL}/messages/${connection_id}/last`)
-        .then(res => {
-            let lastMsg = res.data[0];
-            if(lastMsg.recipient_email === user.email){
-                axios.put(`${API_URL}/messages/${connection_id}`,{connection_id: connection_id})
-            }
-        })
+            .then(res => {
+                let lastMsg = res.data[0];
+                if (lastMsg.recipient_email === user.email) {
+                    axios.put(`${API_URL}/messages/${connection_id}`, { connection_id: connection_id })
+                }
+            })
         //mark last message as read
     })
 
@@ -163,13 +165,13 @@ function Messages({ match }) {
                     </div>
                 </form>
             </div>
-            <div className='chatbox-options' onClick={handleClick}>
+            <div className='chatbox-options' onClick={(e) => handleClick(e)}>
                 <h3 className='chatbox-options__title'>Games!</h3>
                 <hr></hr>
                 <div className='chatbox-options__games'>
-                <img className='chatbox-options-img' alt='tic tak toe' src={ticTakToe} />
-                <img className='chatbox-options-img' alt='simon game' src={simonImg} />
-                <img className='chatbox-options-img' alt='hangman' src={hangmanImg} />
+                    <img className='chatbox-options-img' alt='Tic-Tak-Toe' src={ticTakToe} />
+                    <img className='chatbox-options-img' alt='Simon' src={simonImg} />
+                    <img className='chatbox-options-img' alt='Hangman' src={hangmanImg} />
                 </div>
             </div>
             <GameModal
@@ -177,7 +179,10 @@ function Messages({ match }) {
                 onClose={(e) => { e.preventDefault(); setShowModal(false) }}
                 socket={socket}
                 connection_id={connection_id}
-                connection={connection} />
+                connection={connection}
+                gameLaunced={gameLaunced}
+            />
+
         </>
 
     )

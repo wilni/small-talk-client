@@ -86,6 +86,14 @@
         border-bottom: 1px solid $Secondary-light;
         display: flex;
         flex-direction: column;
+
+        &--TBD {
+            font-size: 4rem;
+            margin: 4rem;
+            border-top: 1px solid $Secondary-light;
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__input {
