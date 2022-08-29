@@ -68,7 +68,9 @@ For the client side:
 
 
 For the server side: 
+- install MySQL 
 - clone the repository 
+- configure knex.js file with SQL server info 
 - npm install
 - node index.js
 
