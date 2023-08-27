@@ -1,13 +1,13 @@
 
 # Small-Talk
 
-This is instant mesanger with live games. 
-You are able to add, delete and chat with connections as well as play live games. 
+This is an instant messager with live games. 
+You are able to add, delete, and chat with connections as well as play live games. 
 
 Link to deployed site: https://small-talk-live.herokuapp.com/
 
-It is built with React for the front end and an express server in the beack end. 
-Both the server and client side of the app need to be running synchronously. The reposositories are as follows. 
+It is built with React for the front end and an express server in the back end. 
+The app's server and client side need to be running synchronously. The repositories are as follows. 
 
 
 Small-Talk-client: 
@@ -51,7 +51,7 @@ App Screenshots
 
 ## Install and Run
 
-This app is built with React for the front end and an express server in the beack end. 
+This app is built with React for the front end and an express server in the back end. 
 Both the server and client side of the app need to be running synchronously. The repos are as follows. 
 
 Small-Talk-client: 
@@ -101,14 +101,14 @@ For the server side:
 
 ## Lessons Learned
 
-From this project I became familiar with a lot of new technologies and aspects of web developmet. I implemented only functional components and websockets wich were both new to me. This was also the first application wher I deployed not onlya front end but also a back end server. I had to navigate a few things to set up my production database and enviroment.
+From this project, I became familiar with many new technologies and aspects of web development. I implemented only functional components and websockets which were both new to me. This was also the first application where I deployed only a front-end and a back-end server. I had to navigate a few things to set up my production database and environment.
 
 
 ## next steps 
 
 - add more games (simon, hangman)
-- implement end to end encryption
-- create a react native version to deploy app on iOS, android as well as the web.
+- Implement end to end encryption
+- Create a react native version to deploy the app on iOS, Android as well as the web.
 
 ## License
 
