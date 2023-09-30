@@ -18,7 +18,7 @@ function Header(props) {
         <header className='header'>
             <img className='header__logo' onClick={handleClick} src={logo} alt="logo"/>
             <nav className='navbar'>
-                <button className={'navbar__link button'} onClick={handleClick}>Connections</button>
+               {isAuthenticated ? <button className={'navbar__link button'} onClick={handleClick}>Connections</button> : <p></p>}
                 {isAuthenticated ? <LogoutBtn >Logout</LogoutBtn> : <LoginBtn >Login</LoginBtn>}
             </nav>
         </header>
