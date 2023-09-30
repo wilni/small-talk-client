@@ -1,70 +1,135 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Small-Talk
 
-## Available Scripts
+This is an instant messager with live games. 
+You are able to add, delete, and chat with connections as well as play live games. 
 
-In the project directory, you can run:
+Link to deployed site: https://small-talk-live.herokuapp.com/
 
-### `npm start`
+It is built with React for the front end and an express server in the back end. 
+The app's server and client side need to be running synchronously. The repositories are as follows. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Small-Talk-client: 
+https://github.com/wilni/small-talk-client
 
-### `npm test`
+Small-Talk-server: 
+https://github.com/wilni/small-talk-server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="700" alt="SmallTalk desktop" src="https://user-images.githubusercontent.com/81815266/186259073-dff09aea-0aed-4354-b48d-853343836464.png"  height="400">
 
-### `npm run build`
+<div>
+<img width="350" alt="Screen Shot 2022-08-23 at 4 25 03 PM" src="https://user-images.githubusercontent.com/81815266/186259862-e36ced7b-c7bd-449e-ad94-345809929646.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="350" alt="Screen Shot 2022-08-23 at 4 25 18 PM" src="https://user-images.githubusercontent.com/81815266/186259935-e99ed755-7400-49b6-bf48-58c28d81aa06.png">
+</div
+    
+App Screenshots
+    
+    
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Front End
+- React
+- Sass
+- Js
+- Axios
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Back End
+- Node Js
+- Express 
+- MySQL 
+- Knex js
+- Axios
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### OAuth
+ - Auth0
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ #### deployment
+ - Heroku
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Install and Run
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This app is built with React for the front end and an express server in the back end. 
+Both the server and client side of the app need to be running synchronously. The repos are as follows. 
 
-## Learn More
+Small-Talk-client: 
+https://github.com/wilni/small-talk-client
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Small-Talk-server: 
+https://github.com/wilni/small-talk-server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For the client side: 
 
-### Code Splitting
+- clone the repository 
+- run npm install
+- run npm start 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+For the server side: 
+- install MySQL
+- clone the repository
+- configure knexfile.js file with SQL server info
+- run npm install
+- run node index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    //client 
+    "axios": "^0.27.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dotenv": "^0.1.3",
+    "react-router-dom": "5.3",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.7",
+    "sass": "^1.54.0",
+    "socket.io-client": "^4.5.1",
+    "uniqid": "^5.4.0",
+    
+    //server
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.5.1",
+    "uniqid": "^5.4.0"
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Lessons Learned
 
-### Deployment
+From this project, I became familiar with many new technologies and aspects of web development. I implemented only functional components and websockets which were both new to me. This was also the first application where I deployed only a front-end and a back-end server. I had to navigate a few things to set up my production database and environment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## next steps 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- add more games (simon, hangman)
+- Implement end to end encryption
+- Create a react native version to deploy the app on iOS, Android as well as the web.
+
+## License
+
+MIT License
+
+Copyright (c) 2022 Wilniyobri Tavarez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
