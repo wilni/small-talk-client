@@ -4,7 +4,7 @@
 This is an instant messager with live games. 
 You are able to add, delete, and chat with connections as well as play live games. 
 
-Link to deployed site: https://small-talk-live.herokuapp.com/
+Link to deployed site: https://small-talk-8943a9c264fc.herokuapp.com/
 
 It is built with React for the front end and an express server in the back end. 
 The app's server and client side need to be running synchronously. The repositories are as follows. 
