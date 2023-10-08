@@ -19,11 +19,11 @@ https://github.com/wilni/small-talk-server
 <img width="700" alt="SmallTalk desktop" src="https://user-images.githubusercontent.com/81815266/186259073-dff09aea-0aed-4354-b48d-853343836464.png"  height="400">
 
 <div>
-<img width="350" alt="Screen Shot 2022-08-23 at 4 25 03 PM" src="https://user-images.githubusercontent.com/81815266/186259862-e36ced7b-c7bd-449e-ad94-345809929646.png">
 
-<img width="350" alt="Screen Shot 2022-08-23 at 4 25 18 PM" src="https://user-images.githubusercontent.com/81815266/186259935-e99ed755-7400-49b6-bf48-58c28d81aa06.png">
-</div
-    
+<img width="447" alt="Screen Shot 2023-10-08 at 11 54 54 AM" src="https://github.com/wilni/small-talk-client/assets/81815266/5284a367-9d38-4dd1-9703-64ae653b9c33">
+
+<img width="450" alt="Screen Shot 2023-10-08 at 11 56 58 AM" src="https://github.com/wilni/small-talk-client/assets/81815266/ce53ed41-832a-46fe-b2eb-ed819d471701">
+
 App Screenshots
     
     
